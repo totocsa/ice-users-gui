@@ -117,7 +117,6 @@ class UserController extends IcseusdController
 
     public function indexQuery(): LengthAwarePaginator
     {
-        /* @var $query \App\Models\XModel */
         $t0 = 'users';
 
         $query = $this->modelClassName::query()

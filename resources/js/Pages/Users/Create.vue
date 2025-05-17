@@ -56,6 +56,10 @@ const formData = reactive(da)
                 <LocalTranslation category="ControllerMenu-item" subtitle="Users" />
                 </Link>
 
+                <Link :href="route('locales.index')" :class="controllerMenuLink">
+                <LocalTranslation category="ControllerMenu-item" subtitle="Locales" />
+                </Link>
+
                 <Link :href="route('translations.index')" :class="controllerMenuLink">
                 <LocalTranslation category="ControllerMenu-item" subtitle="Translations" />
                 </Link>
