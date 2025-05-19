@@ -36,7 +36,7 @@ class UserController extends IcseusdController
             'item' => [
                 'fields' => ['users-name', 'users-email'],
             ],
-        ]
+        ],
     ];
 
     public $filters = [
@@ -64,47 +64,53 @@ class UserController extends IcseusdController
     public function fields()
     {
         return [
-            'users-name' => [
-                'editableOnIndex' => true,
-                'form' => [
-                    'tag' => 'input',
+            'filter' => [
+                'users-name' => [
+                    'tagName' => 'input',
                     'attributes' => [
                         'type' => 'text',
                     ],
                 ],
-                'filter' => [
-                    'tag' => 'input',
+                'users-email' => [
+                    'tagName' => 'input',
+                    'attributes' => [
+                        'type' => 'text',
+                    ],
+                ],
+                'current_team_id' => [
+                    'tagName' => 'select',
+                    'options' => ['additionalData', 'current_team_idValueTexts'],
+                    'attributes' => [],
+                ],
+            ],
+            'item' => [
+                'users-name' => [
+                    'tagName' => 'EDITABLE_TEXT_STARTER',
                     'attributes' => [
                         'type' => 'text',
                     ],
                 ],
             ],
-            'users-email' => [
-                'form' => [
-                    'tag' => 'input',
+            'form' => [
+                'users-name' => [
+                    'tagName' => 'input',
+                    'attributes' => [
+                        'type' => 'text',
+                    ],
+                ],
+                'users-email' => [
+                    'tagName' => 'input',
                     'attributes' => [
                         'type' => 'email',
                     ],
                 ],
-                'filter' => [
-                    'tag' => 'input',
-                    'attributes' => [
-                        'type' => 'text',
-                    ],
-                ],
-            ],
-            'current_team_id' => [
-                'form' => [
-                    'tag' => 'select',
-                    'options' => ['additionalData', 'current_team_idValueTexts'],
-                    'attributes' => [],
-                ],
-                'filter' => [
-                    'tag' => 'select',
+                'current_team_id' => [
+                    'tagName' => 'select',
                     'options' => ['additionalData', 'current_team_idValueTexts'],
                     'attributes' => [],
                 ],
             ],
+            'show' => [],
         ];
     }
 
