@@ -3,6 +3,7 @@
 namespace Totocsa\UsersGUI\Http\Controllers;
 
 use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Support\Str;
 use Totocsa\Icseusd\Http\Controllers\IcseusdController;
 use App\Models\User;
 
@@ -177,6 +178,20 @@ class UserController extends IcseusdController
         return [
             'current_team_idValueTexts' => $current_team_idValueTexts,
         ];
+    }
+
+    public function setVueComponents($prefix = '')
+    {
+        $name = last(explode('\\', $this::class));
+        $name = substr($name, 0, strlen($name) - strlen('Controller'));
+        $prefix .= Str::plural($name);
+
+        $routes = $this->getRoutes();
+
+        $this->vueComponents = [];
+        foreach ($routes as $k => $v) {
+            $this->vueComponents[$k] = "../../../vendor/totocsa/ice-users-gui/resources/js/Pages/$prefix/" . ucfirst(strtolower($k));
+        }
     }
 
     public function getCurrent_team_idValueTexts()
