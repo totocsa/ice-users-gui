@@ -34,10 +34,6 @@ class UsersGUIServiceProvider extends ServiceProvider
             $paths[$fileInfo->getPathname()] = $publishAs;
         }
 
-        /*$paths[__DIR__ . '/resources'] =  resource_path();
-
-        $this->publishes($paths, $groups);*/
-
         $this->publishes($paths, $groups);
         $this->publishes([__DIR__ . '/resources' =>  resource_path()], "$groupsBase-resources");
     }
